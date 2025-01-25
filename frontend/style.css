@@ -46,7 +46,7 @@ body {
     --color-text-white: white;
 }
 
-#paste-input-panel, #paste-setting-panel, #paste-uploaded-panel {
+#paste-input-panel, #paste-setting-panel, #paste-uploaded-panel, #retrieve-panel {
     border: 1px var(--color-border) solid;
     margin: 0.5rem 0;
 }
@@ -130,11 +130,11 @@ body {
     height: 100%;
 }
 
-#paste-uploaded-panel, #paste-setting-panel {
+#paste-uploaded-panel, #paste-setting-panel, #retrieve-panel {
     padding: 1rem;
 }
 
-#paste-uploaded-panel > h2, #paste-setting-panel > h2 {
+#paste-uploaded-panel > h2, #paste-setting-panel > h2, #retrieve-panel > h2 {
     margin: 0;
     border: none;
 }

@@ -3,6 +3,7 @@ import { getBoundary, parseFormdata } from "../parseFormdata.js"
 import {
   decode,
   genRandStr,
+  genRandNum,
   getDispFilename,
   isLegalUrl,
   params,
@@ -20,7 +21,7 @@ async function createPaste(env, content, isPrivate, expire, short, createDate, p
   // repeat until finding an unused name
   if (short === undefined) {
     while (true) {
-      short = genRandStr(short_len)
+      short = genRandNum(short_len)
       if ((await env.PB.get(short)) === null) break
     }
   }
@@ -43,6 +44,7 @@ async function createPaste(env, content, isPrivate, expire, short, createDate, p
   let accessUrl = env.BASE_URL + "/" + short
   const adminUrl = env.BASE_URL + "/" + short + params.SEP + passwd
   return {
+    code: short,
     url: accessUrl,
     suggestUrl: suggestUrl(content, filename, short, env.BASE_URL),
     admin: adminUrl,

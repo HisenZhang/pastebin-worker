@@ -1,5 +1,6 @@
 export const params = {
   CHAR_GEN : "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
+  NUM_GEN : "0123456789",
   NAME_REGEX : /^[a-zA-Z0-9+_\-\[\]*$@,;]{3,}$/,
   RAND_LEN : 4,
   PRIVATE_RAND_LEN : 24,
@@ -25,6 +26,15 @@ export function genRandStr(len) {
   const numOfRand = params.CHAR_GEN.length
   for (let i = 0; i < len; i++) {
     str += params.CHAR_GEN.charAt(Math.floor(Math.random() * numOfRand))
+  }
+  return str
+}
+
+export function genRandNum(len) {
+  let str = ""
+  const numOfRand = params.NUM_GEN.length
+  for (let i = 0; i < len; i++) {
+    str += params.NUM_GEN.charAt(Math.floor(Math.random() * numOfRand))
   }
   return str
 }
